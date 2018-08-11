@@ -7,6 +7,9 @@ const {key}=require('./exports')
 const newsapi = new NewsAPI(key);
 const port=process.env.PORT||3000
 app.set('view engine','hbs');
+app.get('/',(req,res)=>{
+    res.redirect('/india')
+})
 app.get('/:q',(req,res)=>{
     newsapi.v2.topHeadlines({
         q:req.params.q,
